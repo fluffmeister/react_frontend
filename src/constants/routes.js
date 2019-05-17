@@ -5,4 +5,4 @@ export const USERS ='/users'
 export const LOGIN = '/login'
 export const ITEM = '/item'
 export const SEARCH = '/SEARCH'
-
+export const REGISTER = '/REGISTER'

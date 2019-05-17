@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-
+import Display from '../Display/Display'
 
 class Search extends Component {
   state = {
+    found:[],
     itemsList: {},
-    search:''
+    search:'',
+  
 
   }
 
@@ -15,17 +17,18 @@ class Search extends Component {
         this.setState({itemsList: res})
       )
   }
-
-
+  
   fetchCall = async e => {
-   
+  
     try {
-      const item = await fetch(`/d3/data/item/${this.state.search}`)
-             
+      //const item = await fetch(`/d3/data/item/${this.state.search}`)
+        const item = await fetch(`d3/data/item-type/${this.state.search}`)   
         const itemJson= await item.json()
-        this.setState({itemsList:itemJson})
-    console.log(itemJson,'itemjson')
-    console.log(this.state.itemsList,'=======itemnslist')
+        this.setState({
+          itemsList:itemJson,
+          found:itemJson
+        })
+ 
         return itemJson
     } catch(err) {
       console.log(err)
@@ -36,25 +39,38 @@ class Search extends Component {
       [e.currentTarget.name]: e.currentTarget.value
     })
 
-    newSearch =e =>{
-        e.preventDefault()
-        this.fetchCall()
-        .then(res=>
-          this.setState({itemsList: res})
-        )
-    }
+  newSearch =e =>{
+      e.preventDefault()
+      this.fetchCall()
+      .then(res=>
+        this.setState({
+          itemsList: res,
+          found:res
+        })
+      ) 
+  }
 
   render() {
     return (
       <div>
-          <h1>API Fetch</h1>
-            <h2>{this.state.itemsList.name}</h2>
+          <h1>Item Search</h1>
+          {/* <h2>{this.state.itemsList.id}</h2> */}
+            {/* {
+              this.state.itemsList.map(here,i)
+            } */}
+        
 
             <form onSubmit={this.newSearch}>
+                <input 
+                  type="text" 
+                  value={this.search} 
+                  name="search" 
+                  onChange={this.doUpdateSearch}/>
 
-                <input type="text" value={this.search} name="search" onChange={this.doUpdateSearch}/>
                 <button type="submit">Submit</button>
             </form>
+
+            <Display found={this.state.found}/>
            
       </div>
     )

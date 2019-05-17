@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 
 
-class Item extends Component {
+class Skill extends Component {
   state = {
-    itemsList: {},
+    skillList: {},
     result:[],
     search:'', 
   }
@@ -25,8 +25,7 @@ class Item extends Component {
   
   doGetItem = async e => {
     try {
-      const item = await fetch(`d3/data/item/${this.props.slug}/${this.props.id}`
-        )  
+      const skill = await fetch()  
       const parsedItem = await item.json()
           
       return parsedItem
@@ -38,13 +37,14 @@ class Item extends Component {
   }
  
   render() {
- 
+  
     return (
       <div>
        <div style={{'textAlign':'center'}}>{this.state.itemsList.requiredLevel}
        {this.state.itemsList.damage}<br/>
       {this.state.itemsList.flavorText}</div>
      
+        
       </div>
     )
   }
