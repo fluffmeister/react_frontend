@@ -7,8 +7,6 @@ class Search extends Component {
     found:[],
     itemsList: {},
     search:'',
-  
-
   }
 
   componentDidMount() {
@@ -54,12 +52,6 @@ class Search extends Component {
     return (
       <div>
           <h1>Item Search</h1>
-          {/* <h2>{this.state.itemsList.id}</h2> */}
-            {/* {
-              this.state.itemsList.map(here,i)
-            } */}
-        
-
             <form onSubmit={this.newSearch}>
                 <input 
                   type="text" 

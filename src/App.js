@@ -3,9 +3,10 @@ import { Switch, Route } from 'react-router-dom'
 import NavBar from './component/NavBar/NavBar'
 import Login from './component/Login/Login'
 import ShowUser from './component/ShowUser/ShowUser'
-
+// import Skills from './component/Skill/Skill'
 import Search from './component/Search/Search'
 import Register from './component/Register/Register'
+import Character from './component/Character/Character'
 import * as routes from './constants/routes'
 import './App.css';
 
@@ -17,7 +18,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      
+      <div style={{'textAlign':'center'}}>
         
         <NavBar currentUser={this.state.currentUser}/>
         <Switch>
@@ -26,7 +28,7 @@ class App extends Component {
   
           <Route exact path={routes.USERS} render={() => <div>USER</div>} />
           <Route exact path={`${routes.USERS}/:id`} render={() => <ShowUser />} />
-          <Route exact path={routes.POSTS} render={() => <div>POST</div>} />
+          <Route exact path={routes.CHARACTER} render={() => <Character/>} />
           <Route exact path={routes.SEARCH} render={() => <Search />} />
           <Route exact path={routes.REGISTER} render={() => <Register />} />
           <Route exact path={'/login'} render={() => <Login currentUser={this.state.currentUser} doSetCurrentUser={this.doSetCurrentUser}/>} />

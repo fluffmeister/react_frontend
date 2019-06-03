@@ -3,3 +3,9 @@
     border-bottom: 1px solid red;
 }
 
+.nav{
+    color: white;
+    background-color:green;
+    border:5px solid darkviolet;
+    border-radius: 25px;
+}

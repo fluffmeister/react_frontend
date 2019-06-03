@@ -1,6 +1,6 @@
 export const ROOT = '/'
-export const HOME = '/home'
-export const POSTS ='/posts'
+export const CHARACTER = '/Character'
+export const SKILLS ='/skills'
 export const USERS ='/users'
 export const LOGIN = '/login'
 export const ITEM = '/item'
