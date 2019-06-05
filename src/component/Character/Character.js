@@ -16,18 +16,18 @@ class Character extends Component {
   changeClassNecro=(e)=>{this.setState({charClass:'necromancer'})}
   changeClassCrusader=(e)=>{this.setState({charClass:'crusader'})}
   
-  doGetSkill = async e => {
-    try {
-      const skill = await fetch()  
-      const parsedItem = await skill.json()
+  // doGetSkill = async e => {
+  //   try {
+  //     const skill = await fetch()  
+  //     const parsedItem = await skill.json()
           
-      return parsedItem
+  //     return parsedItem
 
-    } catch(err) {
+  //   } catch(err) {
 
-      console.log(err)
-    }
-  }
+  //     console.log(err)
+  //   }
+  // }
  
   render() {
         console.log(this.state.charClass,'======class')
@@ -49,12 +49,12 @@ class Character extends Component {
           
           
           {
-            this.state.charClass=='wizard'?<h1>WIZARD</h1>
-            :this.state.charClass=='barbarian'?<h1>BARBARIAN</h1>
-            :this.state.charClass=='monk'?<h1>MONK</h1>
-            :this.state.charClass=='demon-hunter'?<h1>DEMON HUNTER</h1>
-            :this.state.charClass=='necromancer'?<h1>NECROMANCER</h1>
-            :this.state.charClass=='crusader'?<h1>CRUSADER</h1>
+            this.state.charClass==='wizard'?<h1>WIZARD</h1>
+            :this.state.charClass==='barbarian'?<h1>BARBARIAN</h1>
+            :this.state.charClass==='monk'?<h1>MONK</h1>
+            :this.state.charClass==='demon-hunter'?<h1>DEMON HUNTER</h1>
+            :this.state.charClass==='necromancer'?<h1>NECROMANCER</h1>
+            :this.state.charClass==='crusader'?<h1>CRUSADER</h1>
             :<h1>Choose Class</h1>
             }
 
